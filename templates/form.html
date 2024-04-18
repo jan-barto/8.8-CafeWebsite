@@ -1,0 +1,71 @@
+<form action="/" method="POST">
+    <p>
+
+    <h5><label>Umístění</label></h5>
+    {% for item in settings.locations %}
+    <input type="checkbox" id="location_{{ item[0] }}" name="location" value="{{ item[0] }}" {{'checked' if item[1] == 'checked'}}>
+    <label for="location_{{ item[0] }}">{{ item[0] }}</label><br>
+    {% endfor %}
+    </p>
+
+    <h5><label>Má záchody:</label></h5>
+
+    <p>
+        <input type="radio" id="has_toilet_any" name="has_toilet" value="" {{'checked' if settings.has_toilet == ''}}>
+        <label for="has_toilet_any">Libovolné</label>
+    </p>
+    <p>
+        <input type="radio" id="has_toilet_true" name="has_toilet" value="True" {{'checked' if settings.has_toilet == 'True'}}>
+        <label for="has_toilet_true">Ano</label>
+    </p>
+    <p>
+        <input type="radio" id="has_toilet_false" name="has_toilet" value="False" {{'checked' if settings.has_toilet == 'False'}}>
+        <label for="has_toilet_false">Ne</label>
+    </p>
+
+    <h5><label>Má wifi:</label></h5>
+    <p>
+        <input type="radio" id="has_wifi_any" name="has_wifi" value="" {{'checked' if settings.has_wifi == ''}}>
+        <label for="has_wifi_any">Libovolné</label>
+    </p>
+    <p>
+        <input type="radio" id="has_wifi_true" name="has_wifi" value="True" {{'checked' if settings.has_wifi == 'True'}}>
+        <label for="has_wifi_true">Ano</label>
+    </p>
+    <p>
+        <input type="radio" id="has_wifi_false" name="has_wifi" value="False" {{'checked' if settings.has_wifi == 'False'}}>
+        <label for="has_wifi_false">Ne</label>
+    </p>
+
+    <h5><label>Má zásuvky:</label></h5>
+    <p>
+        <input type="radio" id="has_sockets_any" name="has_sockets" value="" {{'checked' if settings.has_sockets == ''}}>
+        <label for="has_sockets_any">Libovolné</label>
+    </p>
+    <p>
+        <input type="radio" id="has_sockets_true" name="has_sockets" value="True" {{'checked' if settings.has_sockets == 'True'}}>
+        <label for="has_sockets_true">Ano</label>
+    </p>
+    <p>
+        <input type="radio" id="has_sockets_false" name="has_sockets" value="False" {{'checked' if settings.has_sockets == 'False'}}>
+        <label for="has_sockets_false">Ne</label>
+    </p>
+
+    <h5><label>Lze přijímat hovory:</label></h5>
+
+    <p>
+        <input type="radio" id="can_take_calls_any" name="can_take_calls" value="" {{'checked' if settings.can_take_calls == ''}}>
+        <label for="can_take_calls_any">Libovolné</label>
+    </p>
+    <p>
+        <input type="radio" id="can_take_calls_true" name="can_take_calls" value="True" {{'checked' if settings.can_take_calls == 'True'}}>
+        <label for="can_take_calls_true">Ano</label>
+    </p>
+    <p>
+        <input type="radio" id="can_take_calls_false" name="can_take_calls" value="False" {{'checked' if settings.can_take_calls == 'False'}}>
+        <label for="can_take_calls_false">Ne</label>
+    </p>
+
+
+    <input type="submit" value="Filtrovat">
+</form>
